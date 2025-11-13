@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kau Masih Kekasihku 💗</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffd6e7, #ffe6f2);
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      text-align: center;
+      padding: 80px 20px;
+    }
+    h1 {
+      color: #ff5ca1;
+      font-size: 2.2em;
+    }
+    p {
+      font-size: 1.1em;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      background-color: #ff7bb8;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background-color: #ff5ca1;
+    }
+  </style>
+</head>
+<body>
+  <h1>💖 Kau Masih Kekasihku 💖</h1>
+  <p>Selamat datang di halaman pink lembut milikmu 🥰</p>
+
+  <!-- Tombol cadangan -->
+  <a href="#" class="btn" onclick="playMusic()">Putar Musik 🎵</a>
+
+  <audio id="lagu" autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2023/01/25/audio_2be50e17e0.mp3" type="audio/mp3">
+    Browser kamu tidak mendukung pemutar musik.
+  </audio>
+
+  <script>
+    function playMusic() {
+      const lagu = document.getElementById('lagu');
+      lagu.play();
+    }
+  </script>
+</body>
+</html>
