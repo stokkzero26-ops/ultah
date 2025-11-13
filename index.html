@@ -1,82 +1,92 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Ziraa Sayangg 💖</title>
-<style>
-  body {
-    margin: 0;
-    background: linear-gradient(135deg, #ffd6eb, #ffe6f2);
-    overflow: hidden;
-    font-family: "Poppins", sans-serif;
-    color: #ff5fa2;
-    text-align: center;
-  }
-
-  h1 {
-    font-size: 3em;
-    margin-top: 100px;
-    animation: fadeIn 3s ease-in-out;
-  }
-
-  p {
-    font-size: 1.2em;
-    margin: 20px;
-    line-height: 1.6;
-    animation: fadeIn 4s ease-in-out;
-  }
-
-  @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-  }
-
-  /* animasi love jatuh */
-  .love {
-    position: fixed;
-    top: -10px;
-    color: #ff4081;
-    animation: fall linear forwards;
-  }
-  @keyframes fall {
-    to {
-      transform: translateY(110vh);
-      opacity: 0;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Ziraaa Sayangg 💖</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffb6c1, #ffc0cb, #ffe4e1);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      overflow: hidden;
     }
-  }
 
-  audio { display: none; }
-</style>
+    h1 {
+      font-size: 2.5em;
+      color: #fff;
+      text-shadow: 0 0 10px #ff69b4;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #fff;
+      font-size: 1.2em;
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    .heart {
+      color: #ff3366;
+      animation: pulse 1.5s infinite;
+      font-size: 2em;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.3); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.8; }
+    }
+
+    #typing {
+      font-size: 1.2em;
+      color: white;
+      margin-top: 20px;
+      width: 80%;
+      white-space: pre-wrap;
+      overflow: hidden;
+      border-right: 2px solid white;
+      animation: blink 0.8s infinite;
+    }
+
+    @keyframes blink {
+      0% { border-color: transparent; }
+      50% { border-color: white; }
+      100% { border-color: transparent; }
+    }
+  </style>
 </head>
 <body>
 
-<h1>🎂 Happy Birthday Ziraa Sayangg 💖</h1>
-<p>
-Hari ini dunia terasa lebih indah…<br>
-karena lahir seseorang yang paling manis, paling lembut, dan paling aku sayang. 💞<br><br>
-Setiap detik bersamamu seperti melodi lembut yang tak ingin aku hentikan.<br>
-Semoga semua doa baik mengalir untukmu, Ziraa Sayangg.<br>
-Aku cuma mau kamu tahu… kamu itu rumah terindah di hati aku. 💗
-</p>
+  <h1>🎂 Happy Birthday Ziraaa Sayangg 💖</h1>
+  <p class="heart">❤️❤️❤️</p>
+  <div id="typing"></div>
 
-<audio autoplay loop>
-  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_9fd6b34d2c.mp3?filename=song-for-you-110058.mp3" type="audio/mpeg">
-</audio>
+  <audio autoplay loop>
+    <source src="https://files.catbox.moe/7ox4r6.mp3" type="audio/mpeg">
+  </audio>
 
-<script>
-function createLove() {
-  const love = document.createElement('div');
-  love.classList.add('love');
-  love.textContent = '💖';
-  love.style.left = Math.random() * 100 + 'vw';
-  love.style.fontSize = (Math.random() * 24 + 16) + 'px';
-  love.style.animationDuration = (Math.random() * 3 + 3) + 's';
-  document.body.appendChild(love);
-  setTimeout(() => love.remove(), 6000);
-}
-setInterval(createLove, 300);
-</script>
+  <script>
+    const text = "Hari ini spesial banget, karena hari di mana dunia kedatangan seseorang seindah dirimu... 💕\n" +
+                 "Ziraaa Sayangg, semoga kamu selalu bahagia, sehat, dan dikelilingi cinta yang tulus. ✨\n" +
+                 "Aku cuma mau bilang... kamu itu anugerah terindah dalam hidupku 🥰\n" +
+                 "Selamat ulang tahun ya sayanggku ❤️";
 
+    let i = 0;
+    function typeEffect() {
+      if (i < text.length) {
+        document.getElementById('typing').innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeEffect, 60);
+      }
+    }
+    typeEffect();
+  </script>
 </body>
 </html>
