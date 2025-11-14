@@ -2,107 +2,112 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
+<title>Happy Birthday Ziraa Sayang 💖</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Untuk Kamu 💗</title>
+
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-  body {
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(45deg, #ffb6d9, #ffd9ec);
-    font-family: "Poppins", sans-serif;
-    overflow-x: hidden;
-  }
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #ffb6d9, #ffdde9, #ffc1e3);
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
 
-  h1 {
-    text-align: center;
-    margin-top: 60px;
-    color: #ff3f89;
-    font-size: 2.4rem;
-    font-weight: 700;
-  }
+    .container {
+        width: 90%;
+        max-width: 600px;
+        background: rgba(255, 255, 255, 0.55);
+        padding: 30px;
+        border-radius: 25px;
+        box-shadow: 0 10px 25px rgba(255, 105, 180, 0.3);
+        backdrop-filter: blur(10px);
+        animation: fadeIn 2s ease;
+    }
 
-  .typing {
-    width: 90%;
-    margin: 20px auto;
-    font-size: 1.3rem;
-    text-align: center;
-    color: #333;
-    border-right: 3px solid #ff3f89;
-    white-space: nowrap;
-    overflow: hidden;
-    animation: typing 4s steps(50), blink .6s infinite;
-  }
+    h1 {
+        font-size: 28px;
+        color: #ff4fa3;
+        margin-bottom: 15px;
+        animation: slideDown 1.8s ease;
+    }
 
-  @keyframes typing { from { width: 0 } to { width: 90% } }
-  @keyframes blink { 50% { border-color: transparent } }
+    #typing {
+        font-size: 18px;
+        color: #d63384;
+        font-weight: 400;
+        min-height: 120px;
+        padding: 10px;
+        line-height: 1.6;
+    }
 
-  .btn {
-    display: block;
-    margin: 35px auto;
-    padding: 13px 30px;
-    background: #ff3f89;
-    color: white;
-    border-radius: 18px;
-    font-size: 1.2rem;
-    text-decoration: none;
-    text-align: center;
-    width: fit-content;
-    box-shadow: 0 0 14px rgba(255, 0, 120, .3);
-    transition: .3s;
-  }
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
 
-  .btn:hover {
-    transform: scale(1.05);
-    background: #ff2477;
-  }
+    @keyframes slideDown {
+        from {opacity: 0; transform: translateY(-20px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
 
-  /* hearts */
-  .heart {
-    position: fixed;
-    top: -10px;
-    color: #ff2e7d;
-    font-size: 22px;
-    animation: fall linear forwards;
-  }
-
-  @keyframes fall {
-    to { transform: translateY(110vh); opacity: 0; }
-  }
+    /* tombol musik */
+    #musicBtn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #ff69b4;
+        color: white;
+        border: none;
+        padding: 14px 22px;
+        border-radius: 12px;
+        font-size: 16px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
 </style>
 </head>
+
 <body>
 
-<h1>💗 Untuk Kamu yang Spesial 💗</h1>
+<div class="container">
+    <h1>Untuk Ziraa Sayang 💗</h1>
+    <div id="typing"></div>
+</div>
 
-<p class="typing">
-Aku cuma mau bilang... kamu itu punya cara sendiri buat bikin aku nyaman.
-</p>
-
-<a class="btn" onclick="playMusic()">Klik untuk dengar pesannya 💞</a>
-
-<!-- AUDIO (PLAY SETELAH DIKLIK) -->
-<audio id="bgmusic">
-  <source src="https://files.catbox.moe/0mcc0p.mp3" type="audio/mp3">
-</audio>
+<!-- MUSIC -->
+<button id="musicBtn" onclick="playMusic()">🎵 Putar Musik untuk Ziraa Sayang</button>
+<audio id="bgm" src="file.mp3"></audio>
 
 <script>
 function playMusic() {
-  const audio = document.getElementById("bgmusic");
-  audio.play();
-  alert("💗 Musik sedang diputar, semoga kamu suka 💗");
+    const audio = document.getElementById("bgm");
+    audio.volume = 1.0;
+    audio.play();
 }
 
-// hearts animation
-setInterval(() => {
-  const heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerHTML = "❤️";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.animationDuration = 2 + Math.random() * 3 + "s";
-  document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 4500);
-}, 300);
+/* TYPING EFFECT */
+const text = 
+"Sayang Ziraa... Hari ini bukan cuma ulang tahunmu, tapi hari di mana dunia kedatangan seseorang yang paling manis, lembut, dan bikin hati aku jatuh berkali-kali.\n\n" +
+"Aku cuma mau kamu tahu… kamu itu bukan cuma spesial. Kamu itu rumah. Tempat hati aku pulang tanpa disuruh.\n\n" +
+"Semoga hari ini membawa kebahagiaan yang kamu simpan diam-diam, dan doa yang kamu bisikkan dalam hati… semua terkabul.💖";
+
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 45);
+    }
+}
+typeWriter();
 </script>
 
 </body>
