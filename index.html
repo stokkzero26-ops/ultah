@@ -1,59 +1,109 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Selamat Ulang Tahun</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Kamu 💗</title>
+
 <style>
   body {
     margin: 0;
     padding: 0;
-    background: #ffd6e8;
+    background: linear-gradient(45deg, #ffb6d9, #ffd9ec);
     font-family: "Poppins", sans-serif;
     overflow-x: hidden;
-  }.container { text-align: center; padding: 60px 20px; }
+  }
 
-h1 { font-size: 2.5rem; color: #ff4f9a; margin-bottom: 20px; font-weight: 700; }
+  h1 {
+    text-align: center;
+    margin-top: 60px;
+    color: #ff3f89;
+    font-size: 2.4rem;
+    font-weight: 700;
+  }
 
-.typing { font-size: 1.3rem; color: #333; width: 90%; margin: auto; border-right: 3px solid #ff4f9a; white-space: nowrap; overflow: hidden; animation: typing 4s steps(40, end), blink .7s infinite; }
+  .typing {
+    width: 90%;
+    margin: 20px auto;
+    font-size: 1.3rem;
+    text-align: center;
+    color: #333;
+    border-right: 3px solid #ff3f89;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 4s steps(50), blink .6s infinite;
+  }
 
-@keyframes typing { from { width: 0; } to { width: 90%; } }
+  @keyframes typing { from { width: 0 } to { width: 90% } }
+  @keyframes blink { 50% { border-color: transparent } }
 
-@keyframes blink { 50% { border-color: transparent; } }
+  .btn {
+    display: block;
+    margin: 35px auto;
+    padding: 13px 30px;
+    background: #ff3f89;
+    color: white;
+    border-radius: 18px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    text-align: center;
+    width: fit-content;
+    box-shadow: 0 0 14px rgba(255, 0, 120, .3);
+    transition: .3s;
+  }
 
-.btn { margin-top: 40px; padding: 12px 25px; background: #ff4f9a; color: white; border: none; border-radius: 15px; font-size: 1.2rem; cursor: pointer; box-shadow: 0 4px 10px rgba(255, 0, 90, 0.3); transition: 0.3s; }
+  .btn:hover {
+    transform: scale(1.05);
+    background: #ff2477;
+  }
 
-.btn:hover { transform: scale(1.05); background: #ff2d85; }
+  /* hearts */
+  .heart {
+    position: fixed;
+    top: -10px;
+    color: #ff2e7d;
+    font-size: 22px;
+    animation: fall linear forwards;
+  }
 
-.hearts { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; }
-
-.heart { position: absolute; color: #ff4f9a; font-size: 20px; animation: floatUp 4s linear infinite; }
-
-@keyframes floatUp { 0% { transform: translateY(100vh) scale(0.8); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateY(-10vh) scale(1.4); opacity: 0; } } </style>
-
+  @keyframes fall {
+    to { transform: translateY(110vh); opacity: 0; }
+  }
+</style>
 </head>
-<body><div class="hearts" id="hearts"></div><div class="container">
-  <h1>🎉 Selamat Ulang Tahun 🎉</h1>  <p class="typing">Aku cuma mau bilang... terima kasih sudah hadir dan bikin hari-hari aku jauh lebih indah. Semoga hari ini jadi hari yang paling manis buat kamu. 💗</p><button class="btn" onclick="playMusic()">Klik untuk Mendengar Pesan</button>
+<body>
 
-</div><audio id="music" src="lagu.mp3"></audio>
+<h1>💗 Untuk Kamu yang Spesial 💗</h1>
+
+<p class="typing">
+Aku cuma mau bilang... kamu itu punya cara sendiri buat bikin aku nyaman.
+</p>
+
+<a class="btn" onclick="playMusic()">Klik untuk dengar pesannya 💞</a>
+
+<!-- AUDIO (PLAY SETELAH DIKLIK) -->
+<audio id="bgmusic">
+  <source src="https://files.catbox.moe/0mcc0p.mp3" type="audio/mp3">
+</audio>
 
 <script>
 function playMusic() {
-  document.getElementById("music").play();
+  const audio = document.getElementById("bgmusic");
+  audio.play();
+  alert("💗 Musik sedang diputar, semoga kamu suka 💗");
 }
 
-// Floating hearts
-function generateHearts() {
-  const hearts = document.getElementById("hearts");
+// hearts animation
+setInterval(() => {
   const heart = document.createElement("div");
-  heart.classList.add("heart");
-  heart.innerHTML = "❤";
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
   heart.style.left = Math.random() * 100 + "vw";
-  heart.style.animationDuration = 3 + Math.random() * 3 + "s";
-  hearts.appendChild(heart);
+  heart.style.animationDuration = 2 + Math.random() * 3 + "s";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 4500);
+}, 300);
+</script>
 
-  setTimeout(() => heart.remove(), 5000);
-}
-
-setInterval(generateHearts, 300);
-</script></body>
+</body>
 </html>
