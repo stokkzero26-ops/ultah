@@ -1,0 +1,6 @@
+<audio id="bgm" src="lagu.mp3"></audio>
+
+<button onclick="document.getElementById('bgm').play()" 
+style="padding:12px 20px;background:#ff69b4;color:white;border-radius:10px;border:none;font-size:17px;">
+🎵 Putar Musik
+</button>
