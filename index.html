@@ -1,92 +1,59 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday Ziraaa Sayangg 💖</title>
-  <style>
-    body {
-      background: linear-gradient(135deg, #ffb6c1, #ffc0cb, #ffe4e1);
-      height: 100vh;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      font-family: 'Poppins', sans-serif;
-      text-align: center;
-      overflow: hidden;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Selamat Ulang Tahun</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: #ffd6e8;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+  }.container { text-align: center; padding: 60px 20px; }
 
-    h1 {
-      font-size: 2.5em;
-      color: #fff;
-      text-shadow: 0 0 10px #ff69b4;
-      margin-bottom: 10px;
-    }
+h1 { font-size: 2.5rem; color: #ff4f9a; margin-bottom: 20px; font-weight: 700; }
 
-    p {
-      color: #fff;
-      font-size: 1.2em;
-      width: 80%;
-      margin: 0 auto;
-    }
+.typing { font-size: 1.3rem; color: #333; width: 90%; margin: auto; border-right: 3px solid #ff4f9a; white-space: nowrap; overflow: hidden; animation: typing 4s steps(40, end), blink .7s infinite; }
 
-    .heart {
-      color: #ff3366;
-      animation: pulse 1.5s infinite;
-      font-size: 2em;
-    }
+@keyframes typing { from { width: 0; } to { width: 90%; } }
 
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 0.8; }
-      50% { transform: scale(1.3); opacity: 1; }
-      100% { transform: scale(1); opacity: 0.8; }
-    }
+@keyframes blink { 50% { border-color: transparent; } }
 
-    #typing {
-      font-size: 1.2em;
-      color: white;
-      margin-top: 20px;
-      width: 80%;
-      white-space: pre-wrap;
-      overflow: hidden;
-      border-right: 2px solid white;
-      animation: blink 0.8s infinite;
-    }
+.btn { margin-top: 40px; padding: 12px 25px; background: #ff4f9a; color: white; border: none; border-radius: 15px; font-size: 1.2rem; cursor: pointer; box-shadow: 0 4px 10px rgba(255, 0, 90, 0.3); transition: 0.3s; }
 
-    @keyframes blink {
-      0% { border-color: transparent; }
-      50% { border-color: white; }
-      100% { border-color: transparent; }
-    }
-  </style>
+.btn:hover { transform: scale(1.05); background: #ff2d85; }
+
+.hearts { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; }
+
+.heart { position: absolute; color: #ff4f9a; font-size: 20px; animation: floatUp 4s linear infinite; }
+
+@keyframes floatUp { 0% { transform: translateY(100vh) scale(0.8); opacity: 0; } 50% { opacity: 1; } 100% { transform: translateY(-10vh) scale(1.4); opacity: 0; } } </style>
+
 </head>
-<body>
+<body><div class="hearts" id="hearts"></div><div class="container">
+  <h1>🎉 Selamat Ulang Tahun 🎉</h1>  <p class="typing">Aku cuma mau bilang... terima kasih sudah hadir dan bikin hari-hari aku jauh lebih indah. Semoga hari ini jadi hari yang paling manis buat kamu. 💗</p><button class="btn" onclick="playMusic()">Klik untuk Mendengar Pesan</button>
 
-  <h1>🎂 Happy Birthday Ziraaa Sayangg 💖</h1>
-  <p class="heart">❤️❤️❤️</p>
-  <div id="typing"></div>
+</div><audio id="music" src="lagu.mp3"></audio>
 
-  <audio autoplay loop>
-    <source src="https://files.catbox.moe/7ox4r6.mp3" type="audio/mpeg">
-  </audio>
+<script>
+function playMusic() {
+  document.getElementById("music").play();
+}
 
-  <script>
-    const text = "Hari ini spesial banget, karena hari di mana dunia kedatangan seseorang seindah dirimu... 💕\n" +
-                 "Ziraaa Sayangg, semoga kamu selalu bahagia, sehat, dan dikelilingi cinta yang tulus. ✨\n" +
-                 "Aku cuma mau bilang... kamu itu anugerah terindah dalam hidupku 🥰\n" +
-                 "Selamat ulang tahun ya sayanggku ❤️";
+// Floating hearts
+function generateHearts() {
+  const hearts = document.getElementById("hearts");
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "❤";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = 3 + Math.random() * 3 + "s";
+  hearts.appendChild(heart);
 
-    let i = 0;
-    function typeEffect() {
-      if (i < text.length) {
-        document.getElementById('typing').innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeEffect, 60);
-      }
-    }
-    typeEffect();
-  </script>
-</body>
+  setTimeout(() => heart.remove(), 5000);
+}
+
+setInterval(generateHearts, 300);
+</script></body>
 </html>
