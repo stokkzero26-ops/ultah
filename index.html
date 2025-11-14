@@ -82,15 +82,15 @@
     <div id="typing"></div>
 </div>
 
-<!-- MUSIC -->
+<!-- MUSIC BUTTON -->
 <button id="musicBtn" onclick="playMusic()">🎵 Putar Musik untuk Ziraa Sayang</button>
-<audio id="bgm" src="file.mp3"></audio>
+<audio id="bgm" src="lagu.mp3"></audio>
 
 <script>
 function playMusic() {
     const audio = document.getElementById("bgm");
     audio.volume = 1.0;
-    audio.play();
+    audio.play().catch(err => console.log(err));
 }
 
 /* TYPING EFFECT */
